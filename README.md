@@ -29,35 +29,118 @@ A comprehensive web-based application designed for campus communities to manage 
 
 ```
 LostAndFoundItem/
-├── CampusManagement/                    # Backend Spring Boot Application
+├── CampusManagement/                        # Backend Spring Boot Application
 │   └── lostAndFoundApplication/
-│       └── src/main/java/edu/infosys/lostAndFoundApplication/
-│           ├── bean/                    # Entity Models
-│           │   ├── LostItem.java
-│           │   ├── FoundItem.java
-│           │   └── CampusUser.java
-│           ├── controller/              # REST Controllers
-│           │   ├── LostItemController.java
-│           │   ├── FoundItemController.java
-│           │   └── SearchController.java
-│           ├── service/                 # Business Logic Layer
-│           │   ├── LostItemService.java
-│           │   ├── FoundItemService.java
-│           │   └── CampusUserService.java
-│           ├── dao/                     # Data Access Layer
-│           │   └── impl/
-│           └── repository/              # JPA Repositories
+│       ├── src/
+│       │   ├── main/
+│       │   │   ├── java/
+│       │   │   │   └── edu/infosys/lostAndFoundApplication/
+│       │   │   │       ├── LostAndFoundApplication.java    # Main Spring Boot Application
+│       │   │   │       │
+│       │   │   │       ├── bean/                           # Entity Models (JPA Entities)
+│       │   │   │       │   ├── CampusUser.java
+│       │   │   │       │   ├── FoundItem.java
+│       │   │   │       │   └── LostItem.java
+│       │   │   │       │
+│       │   │   │       ├── config/                         # Configuration Classes
+│       │   │   │       │   ├── CorsConfig.java
+│       │   │   │       │   └── SecurityConfig.java
+│       │   │   │       │
+│       │   │   │       ├── controller/                     # REST API Controllers
+│       │   │   │       │   ├── CampusUserController.java
+│       │   │   │       │   ├── FoundItemController.java
+│       │   │   │       │   ├── LostItemController.java
+│       │   │   │       │   └── SearchController.java
+│       │   │   │       │
+│       │   │   │       ├── dao/                            # Data Access Objects (Interface)
+│       │   │   │       │   ├── CampusUserDao.java
+│       │   │   │       │   ├── FoundItemDao.java
+│       │   │   │       │   ├── LostItemDao.java
+│       │   │   │       │   └── impl/                       # DAO Implementations
+│       │   │   │       │       ├── CampusUserDaoImpl.java
+│       │   │   │       │       ├── FoundItemDaoImpl.java
+│       │   │   │       │       └── LostItemDaoImpl.java
+│       │   │   │       │
+│       │   │   │       ├── repository/                     # JPA Repositories
+│       │   │   │       │   ├── CampusUserRepository.java
+│       │   │   │       │   ├── FoundItemRepository.java
+│       │   │   │       │   └── LostItemRepository.java
+│       │   │   │       │
+│       │   │   │       ├── service/                        # Business Logic Layer
+│       │   │   │       │   ├── CampusUserService.java
+│       │   │   │       │   ├── FoundItemService.java
+│       │   │   │       │   └── LostItemService.java
+│       │   │   │       │
+│       │   │   │       └── util/                           # Utility Classes
+│       │   │   │           └── FuzzySearchUtil.java
+│       │   │   │
+│       │   │   └── resources/
+│       │   │       ├── application.properties              # Spring Boot Configuration
+|
+|
+|
+├── campus-front/                                           # Frontend React Application
+│   │   ├── Component/                                      # React Components
+│   │   │   ├── DashboardComponent/
+│   │   │   │   ├── AdminDashboard.jsx
+│   │   │   │   ├── Dashboard.jsx
+│   │   │   │   └── UserDashboard.jsx
+│   │   │   │
+│   │   │   ├── FooterComponent/
+│   │   │   │   └── Footer.jsx
+│   │   │   │
+│   │   │   ├── HeaderComponent/
+│   │   │   │   └── Header.jsx
+│   │   │   │
+│   │   │   ├── HomeComponent/
+│   │   │   │   ├── Home.jsx
+│   │   │   │   └── HomePageCards.jsx
+│   │   │   │
+│   │   │   ├── ItemComponent/
+│   │   │   │   ├── AllFoundItems.jsx
+│   │   │   │   ├── AllLostItems.jsx
+│   │   │   │   ├── FoundItemSubmit.jsx
+│   │   │   │   ├── LostItemSubmit.jsx
+│   │   │   │   ├── MyFoundItems.jsx
+│   │   │   │   ├── MyLostItems.jsx
+│   │   │   │   └── SearchPage.jsx
+│   │   │   │
+│   │   │   ├── LoginComponent/
+│   │   │   │   ├── Login.jsx
+│   │   │   │   └── Register.jsx
+│   │   │   │
+│   │   │   └── UserComponent/
+│   │   │       ├── AllUsers.jsx
+│   │   │       └── UserProfile.jsx
+│   │   │
+│   │   ├── Services/                                       # API Service Layer
+│   │   │   ├── CampusUserService.js
+│   │   │   ├── LoginService.js
+│   │   │   └── LostFoundItemService.js
+│   │   │
+│   │   ├── App.css                                         # Main App Styles
+│   │   ├── App.jsx                                         # Root Component
+│   │   ├── Dashboard.css                                   # Dashboard Styles
+│   │   ├── Footer.css                                      # Footer Styles
+│   │   ├── FoundItemSubmit.css                             # Found Item Form Styles
+│   │   ├── Header.css                                      # Header Styles
+│   │   ├── Home.css                                        # Home Page Styles
+│   │   ├── index.css                                       # Global Styles
+│   │   ├── Login.css                                       # Login Page Styles
+│   │   ├── LostItemSubmit.css                              # Lost Item Form Styles
+│   │   ├── main.jsx                                        # Application Entry Point
+│   │   ├── MyFoundItems.css                                # My Found Items Styles
+│   │   ├── MyLostItems.css                                 # My Lost Items Styles
+│   │   └── SearchPage.css                                  # Search Page Styles
+│   │
+│   ├── eslint.config.js                                    # ESLint Configuration
+│   ├── index.html                                          # HTML Entry Point
+│   ├── package.json                                        # NPM Dependencies & Scripts
+│   ├── package-lock.json                                   # NPM Lock File
+│   ├── README.md                                           # Frontend Documentation
+│   └── vite.config.js                                      # Vite Configuration
 │
-└── campus-front/                        # Frontend React Application
-    ├── src/
-    │   ├── Component/
-    │   │   └── ItemComponent/
-    │   │       ├── LostItemSubmit.jsx
-    │   │       └── FoundItemSubmit.jsx
-    │   └── Services/
-    │       ├── LostFoundItemService.js
-    │       └── LoginService.js
-    └── package.json
+└── README.md                                               # Main Project Documentation
 ```
 
 ## 🚀 Getting Started
