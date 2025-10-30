@@ -15,26 +15,15 @@ A comprehensive web-based application designed for campus communities to manage 
 
 ### Backend
 - **Framework**: Spring Boot
-- **Language**: Java (25.8%)
-- **Database**: JPA/Hibernate with relational database
-- **Architecture**: RESTful API with MVC pattern
-- **Key Components**:
-  - REST Controllers for API endpoints
-  - Service layer for business logic
-  - DAO pattern for data access
-  - Entity models for data representation
+- **Language**: Java
+- **Database**: MySQL
 
 ### Frontend
 - **Framework**: React 19.1.1
-- **Language**: JavaScript (58.1%)
-- **Styling**: CSS (15.8%), TailwindCSS, Bootstrap
+- **Language**: JavaScript
+- **Styling**: CSS, TailwindCSS, Bootstrap
 - **Build Tool**: Vite
-- **Key Libraries**:
-  - React Router DOM for navigation
-  - Axios for HTTP requests
-  - React Icons for UI icons
-  - Framer Motion for animations
-  - React Bootstrap for UI components
+
 
 ## 📁 Project Structure
 
@@ -140,39 +129,6 @@ The frontend will start on `http://localhost:3939`
 - `GET /lost-found/api/search/lost?q={query}` - Search lost items
 - `GET /lost-found/api/search/found?q={query}` - Search found items
 
-## 💾 Data Models
-
-### Lost Item
-```java
-{
-  "lostItemId": "string",
-  "username": "string",
-  "userEmail": "string",
-  "itemName": "string",
-  "category": "string",
-  "color": "string",
-  "brand": "string",
-  "location": "string",
-  "lostDate": "string",
-  "status": "boolean"
-}
-```
-
-### Found Item
-```java
-{
-  "foundItemId": "string",
-  "username": "string",
-  "userEmail": "string",
-  "itemName": "string",
-  "category": "string",
-  "color": "string",
-  "brand": "string",
-  "location": "string",
-  "foundDate": "string",
-  "status": "boolean"
-}
-```
 
 ## 🔍 Key Features Implementation
 
@@ -183,45 +139,7 @@ The application implements an intelligent fuzzy search algorithm that:
 - Returns results sorted by relevance
 - Provides accurate results even with partial queries
 
-### Auto-generated IDs
-Lost and Found items are assigned unique auto-generated IDs using a synchronized method to ensure consistency across concurrent submissions.
-
-## 🎨 Frontend Scripts
-
-```bash
-npm run dev      # Start development server on port 3939
-npm run build    # Build for production
-npm run preview  # Preview production build
-npm run lint     # Run ESLint
-```
-
-## 🔐 CORS Configuration
-
-The backend is configured to accept requests from `http://localhost:3939` for local development. Update CORS settings in production accordingly.
-
-## 📝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## 📄 License
 
 This project is developed as part of an educational initiative.
-
-## 👥 Author
-
-**Vinay-Karthik**
-
-## 🙏 Acknowledgments
-
-- Built with Spring Boot framework
-- UI powered by React and Vite
-- Styled with TailwindCSS and Bootstrap
-- Icons from React Icons library
-
----
-
-**Note**: This is a campus management system designed to facilitate the lost and found process in educational institutions. For production deployment, ensure proper security measures, environment configurations, and database optimizations are in place.
